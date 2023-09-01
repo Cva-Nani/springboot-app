@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    
+    tools {
+        maven "maven"
+    }
+
+    stages {
+        stage('git clone') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Git', url: 'https://github.com/rakeshsirivella/springboot-app.git']])
+            }
+        }
+	}
+	}
